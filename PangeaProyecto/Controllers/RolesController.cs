@@ -15,12 +15,14 @@ namespace PangeaProyecto.Controllers
         private PangeaEntities db = new PangeaEntities();
 
         // GET: Roles
+        [Authorize(Roles = "Cordinador")]
         public ActionResult Index()
         {
             return View(db.Rol.ToList());
         }
 
         // GET: Roles/Details/5
+        [Authorize(Roles = "Cordinador")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,6 +37,7 @@ namespace PangeaProyecto.Controllers
             return View(rol);
         }
 
+        [Authorize(Roles = "Cordinador")]
         // GET: Roles/Create
         public ActionResult Create()
         {
@@ -46,6 +49,7 @@ namespace PangeaProyecto.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Cordinador")]
         public ActionResult Create([Bind(Include = "id,nombre,habilitado,id_trabajador_crea,fecha_crea,id_trabajador_modif,fecha_modif")] Rol rol)
         {
             if (ModelState.IsValid)
@@ -59,6 +63,7 @@ namespace PangeaProyecto.Controllers
         }
 
         // GET: Roles/Edit/5
+        [Authorize(Roles = "Cordinador")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +83,7 @@ namespace PangeaProyecto.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Cordinador")]
         public ActionResult Edit([Bind(Include = "id,nombre,habilitado,id_trabajador_crea,fecha_crea,id_trabajador_modif,fecha_modif")] Rol rol)
         {
             if (ModelState.IsValid)
@@ -90,6 +96,7 @@ namespace PangeaProyecto.Controllers
         }
 
         // GET: Roles/Delete/5
+        [Authorize(Roles = "Cordinador")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +114,7 @@ namespace PangeaProyecto.Controllers
         // POST: Roles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Cordinador")]
         public ActionResult DeleteConfirmed(int id)
         {
             Rol rol = db.Rol.Find(id);
