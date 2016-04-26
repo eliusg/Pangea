@@ -1,0 +1,122 @@
+﻿@model PangeaProyecto.Datos.Trabajador
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Trabajador</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellido1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellido2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.habilitado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.habilitado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_trabajador_crea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_trabajador_crea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_crea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_crea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_trabajador_modif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_trabajador_modif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_modif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_modif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_usuario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rol.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rol.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sucursal.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sucursal.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

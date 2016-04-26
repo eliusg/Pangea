@@ -1,0 +1,93 @@
+﻿@model IEnumerable<PangeaProyecto.Datos.Turno>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_sucursal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_trabajador_crea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_crea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_trabajador_modif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_modif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_trabajador_elimina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_elimina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Tipo_Turno.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trabajador.nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_sucursal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_trabajador_crea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_crea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_trabajador_modif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_modif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_trabajador_elimina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_elimina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tipo_Turno.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trabajador.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PangeaProyecto.Datos.TrabajadorDestino>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.habilitado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Actividad.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destino.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trabajador.nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.habilitado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Actividad.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Destino.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trabajador.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

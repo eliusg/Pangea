@@ -1,0 +1,87 @@
+﻿@model IEnumerable<PangeaProyecto.Datos.Ausencia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.inicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_ausencia)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_trabajador_ausente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_turno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_solicitud)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_crea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.id_trabajador_modif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_modif)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Trabajador.nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.inicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_ausencia)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_trabajador_ausente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_turno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_solicitud)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_crea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.id_trabajador_modif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_modif)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Trabajador.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

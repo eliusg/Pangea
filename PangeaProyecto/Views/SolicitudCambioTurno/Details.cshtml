@@ -1,0 +1,90 @@
+﻿@model PangeaProyecto.Datos.Solicitud_Cambio_Turno
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Solicitud_Cambio_Turno</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_trabajador_crea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_trabajador_crea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_trabajador_eval)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_trabajador_eval)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_crea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_crea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_eval)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_eval)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_nueva)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_nueva)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_tipo_turno_nuevo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_tipo_turno_nuevo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.observacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.observacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Turno.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Turno.estado)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

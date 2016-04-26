@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b363cf60700943768ed299ec7f2b1e28" Name="Diagram1">
+        <EntityTypeShape EntityType="PangeaModel.Actividad" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PangeaModel.AspNetUsers" Width="1.5" PointX="13" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PangeaModel.Ausencia" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="PangeaModel.Destino" Width="1.5" PointX="6" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PangeaModel.Presencia" Width="1.5" PointX="10.5" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PangeaModel.Rol" Width="1.5" PointX="0.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PangeaModel.Solicitud_Ausencia" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="PangeaModel.Solicitud_Cambio_Turno" Width="1.5" PointX="10.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PangeaModel.Sucursal" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PangeaModel.Tipo_Turno" Width="1.5" PointX="6" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PangeaModel.Trabajador" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PangeaModel.TrabajadorDestino" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PangeaModel.Turno" Width="1.5" PointX="8.25" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="PangeaModel.FK_TrabajadorDestino_Actividad" ManuallyRouted="false" />
+        <AssociationConnector Association="PangeaModel.FK_Ausencia_Trabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="PangeaModel.FK_TrabajadorDestino_Destino" ManuallyRouted="false" />
+        <AssociationConnector Association="PangeaModel.FK_Presencias_Turno" ManuallyRouted="false" />
+        <AssociationConnector Association="PangeaModel.FK_Trabajador_Rol" ManuallyRouted="false" />
+        <AssociationConnector Association="PangeaModel.FK_Solicitud_Ausencias_Trabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="PangeaModel.FK_Solicitud_Cambio_Turno_Estado_Solicitud" ManuallyRouted="false" />
+        <AssociationConnector Association="PangeaModel.FK_Trabajador_Sucursal" ManuallyRouted="false" />
+        <AssociationConnector Association="PangeaModel.FK_Turno_Tipo_Turno" ManuallyRouted="false" />
+        <AssociationConnector Association="PangeaModel.FK_TrabajadorDestino_Trabajador" ManuallyRouted="false" />
+        <AssociationConnector Association="PangeaModel.FK_Turno_Trabajador" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,98 @@
+﻿@model PangeaProyecto.Datos.Ausencia
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ausencia</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.inicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.inicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_ausencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_ausencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_trabajador_ausente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_trabajador_ausente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_turno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_turno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_solicitud)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_solicitud)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_crea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_crea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_trabajador_modif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_trabajador_modif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_modif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_modif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trabajador.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trabajador.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

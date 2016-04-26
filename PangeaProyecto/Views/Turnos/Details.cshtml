@@ -1,0 +1,106 @@
+﻿@model PangeaProyecto.Datos.Turno
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Turno</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_sucursal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_sucursal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_trabajador_crea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_trabajador_crea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_crea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_crea)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_trabajador_modif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_trabajador_modif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_modif)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_modif)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.id_trabajador_elimina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_trabajador_elimina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_elimina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_elimina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo_Turno.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo_Turno.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Trabajador.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Trabajador.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

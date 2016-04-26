@@ -1,0 +1,1011 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PangeaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Actividad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="int" Nullable="false" />
+          <Property Name="fecha_crea" Type="datetime" Nullable="false" />
+          <Property Name="id_trabajador_modif" Type="int" Nullable="false" />
+          <Property Name="fecha_modif" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ausencia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="inicio" Type="datetime" Nullable="false" />
+          <Property Name="fin" Type="datetime" Nullable="false" />
+          <Property Name="tipo_ausencia" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="id_trabajador_ausente" Type="int" Nullable="false" />
+          <Property Name="id_turno" Type="int" />
+          <Property Name="id_solicitud" Type="int" />
+          <Property Name="id_trabajador_crea" Type="int" Nullable="false" />
+          <Property Name="fecha_crea" Type="datetime" Nullable="false" />
+          <Property Name="id_trabajador_modif" Type="int" Nullable="false" />
+          <Property Name="fecha_modif" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Destino">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="int" Nullable="false" />
+          <Property Name="fecha_crea" Type="datetime" Nullable="false" />
+          <Property Name="id_trabajador_modif" Type="int" Nullable="false" />
+          <Property Name="fecha_modif" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Presencia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_turno" Type="int" Nullable="false" />
+          <Property Name="inicio" Type="datetime" Nullable="false" />
+          <Property Name="fin" Type="datetime" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="int" Nullable="false" />
+          <Property Name="fecha_crea" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="int" Nullable="false" />
+          <Property Name="fecha_crea" Type="datetime" Nullable="false" />
+          <Property Name="id_trabajador_modif" Type="int" Nullable="false" />
+          <Property Name="fecha_modif" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Solicitud_Ausencia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="fecha_inicial_aus" Type="datetime" Nullable="false" />
+          <Property Name="fecha_final_aus" Type="datetime" Nullable="false" />
+          <Property Name="tipo_ausencia" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="id_trabajador_eval" Type="int" Nullable="false" />
+          <Property Name="fecha_eval" Type="datetime" Nullable="false" />
+          <Property Name="id_turno" Type="int" />
+          <Property Name="id_trabajador_crea" Type="int" Nullable="false" />
+          <Property Name="fecha_crea" Type="datetime" Nullable="false" />
+          <Property Name="id_trabajador_modif" Type="int" Nullable="false" />
+          <Property Name="fecha_modif" Type="datetime" Nullable="false" />
+          <Property Name="observacion" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Solicitud_Cambio_Turno">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_turno" Type="int" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="int" Nullable="false" />
+          <Property Name="id_trabajador_eval" Type="int" Nullable="false" />
+          <Property Name="fecha_crea" Type="datetime" Nullable="false" />
+          <Property Name="fecha_eval" Type="datetime" Nullable="false" />
+          <Property Name="fecha_nueva" Type="datetime" Nullable="false" />
+          <Property Name="id_tipo_turno_nuevo" Type="int" Nullable="false" />
+          <Property Name="observacion" Type="varchar" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="int" Nullable="false" />
+          <Property Name="fecha_crea" Type="datetime" Nullable="false" />
+          <Property Name="id_trabajador_modif" Type="int" Nullable="false" />
+          <Property Name="fecha_modif" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tipo_Turno">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="hora_inicio" Type="time" Precision="7" Nullable="false" />
+          <Property Name="hora_fin" Type="time" Precision="7" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trabajador">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_rol" Type="int" Nullable="false" />
+          <Property Name="id_sucursal" Type="int" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="apellido1" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="apellido2" Type="varchar" MaxLength="250" Nullable="false" />
+          <Property Name="telefono" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="telefono2" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="int" Nullable="false" />
+          <Property Name="fecha_crea" Type="datetime" Nullable="false" />
+          <Property Name="id_trabajador_modif" Type="int" Nullable="false" />
+          <Property Name="fecha_modif" Type="datetime" Nullable="false" />
+          <Property Name="id_usuario" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TrabajadorDestino">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_destino" Type="int" Nullable="false" />
+          <Property Name="id_trabajador" Type="int" Nullable="false" />
+          <Property Name="id_actividad" Type="int" Nullable="false" />
+          <Property Name="habilitado" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Turno">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_tipo_turno" Type="int" Nullable="false" />
+          <Property Name="fecha" Type="datetime" Nullable="false" />
+          <Property Name="id_sucursal" Type="int" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="id_trabajador_asignado" Type="int" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="int" Nullable="false" />
+          <Property Name="fecha_crea" Type="datetime" Nullable="false" />
+          <Property Name="id_trabajador_modif" Type="int" Nullable="false" />
+          <Property Name="fecha_modif" Type="datetime" Nullable="false" />
+          <Property Name="id_trabajador_elimina" Type="int" Nullable="false" />
+          <Property Name="fecha_elimina" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Ausencia_Trabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+          <End Role="Ausencia" Type="Self.Ausencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ausencia">
+              <PropertyRef Name="id_trabajador_crea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Presencias_Turno">
+          <End Role="Turno" Type="Self.Turno" Multiplicity="1" />
+          <End Role="Presencia" Type="Self.Presencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turno">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Presencia">
+              <PropertyRef Name="id_turno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Ausencias_Trabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+          <End Role="Solicitud_Ausencia" Type="Self.Solicitud_Ausencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Solicitud_Ausencia">
+              <PropertyRef Name="id_trabajador_crea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Cambio_Turno_Estado_Solicitud">
+          <End Role="Turno" Type="Self.Turno" Multiplicity="1" />
+          <End Role="Solicitud_Cambio_Turno" Type="Self.Solicitud_Cambio_Turno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turno">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Solicitud_Cambio_Turno">
+              <PropertyRef Name="id_turno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trabajador_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Trabajador">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trabajador_Sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Trabajador">
+              <PropertyRef Name="id_sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorDestino_Actividad">
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="1" />
+          <End Role="TrabajadorDestino" Type="Self.TrabajadorDestino" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TrabajadorDestino">
+              <PropertyRef Name="id_actividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorDestino_Destino">
+          <End Role="Destino" Type="Self.Destino" Multiplicity="1" />
+          <End Role="TrabajadorDestino" Type="Self.TrabajadorDestino" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Destino">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TrabajadorDestino">
+              <PropertyRef Name="id_destino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorDestino_Trabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+          <End Role="TrabajadorDestino" Type="Self.TrabajadorDestino" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TrabajadorDestino">
+              <PropertyRef Name="id_trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Turno_Tipo_Turno">
+          <End Role="Tipo_Turno" Type="Self.Tipo_Turno" Multiplicity="1" />
+          <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Turno">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Turno">
+              <PropertyRef Name="id_tipo_turno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Turno_Trabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+          <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Turno">
+              <PropertyRef Name="id_trabajador_asignado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PangeaModelStoreContainer">
+          <EntitySet Name="Actividad" EntityType="Self.Actividad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ausencia" EntityType="Self.Ausencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Destino" EntityType="Self.Destino" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Presencia" EntityType="Self.Presencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Solicitud_Ausencia" EntityType="Self.Solicitud_Ausencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Solicitud_Cambio_Turno" EntityType="Self.Solicitud_Cambio_Turno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo_Turno" EntityType="Self.Tipo_Turno" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trabajador" EntityType="Self.Trabajador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TrabajadorDestino" EntityType="Self.TrabajadorDestino" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Turno" EntityType="Self.Turno" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Ausencia_Trabajador" Association="Self.FK_Ausencia_Trabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Ausencia" EntitySet="Ausencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Presencias_Turno" Association="Self.FK_Presencias_Turno">
+            <End Role="Turno" EntitySet="Turno" />
+            <End Role="Presencia" EntitySet="Presencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Ausencias_Trabajador" Association="Self.FK_Solicitud_Ausencias_Trabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Solicitud_Ausencia" EntitySet="Solicitud_Ausencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Cambio_Turno_Estado_Solicitud" Association="Self.FK_Solicitud_Cambio_Turno_Estado_Solicitud">
+            <End Role="Turno" EntitySet="Turno" />
+            <End Role="Solicitud_Cambio_Turno" EntitySet="Solicitud_Cambio_Turno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trabajador_Rol" Association="Self.FK_Trabajador_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Trabajador" EntitySet="Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trabajador_Sucursal" Association="Self.FK_Trabajador_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Trabajador" EntitySet="Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorDestino_Actividad" Association="Self.FK_TrabajadorDestino_Actividad">
+            <End Role="Actividad" EntitySet="Actividad" />
+            <End Role="TrabajadorDestino" EntitySet="TrabajadorDestino" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorDestino_Destino" Association="Self.FK_TrabajadorDestino_Destino">
+            <End Role="Destino" EntitySet="Destino" />
+            <End Role="TrabajadorDestino" EntitySet="TrabajadorDestino" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorDestino_Trabajador" Association="Self.FK_TrabajadorDestino_Trabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="TrabajadorDestino" EntitySet="TrabajadorDestino" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Turno_Tipo_Turno" Association="Self.FK_Turno_Tipo_Turno">
+            <End Role="Tipo_Turno" EntitySet="Tipo_Turno" />
+            <End Role="Turno" EntitySet="Turno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Turno_Trabajador" Association="Self.FK_Turno_Trabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Turno" EntitySet="Turno" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PangeaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Actividad">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="Int32" Nullable="false" />
+          <Property Name="fecha_crea" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_trabajador_modif" Type="Int32" Nullable="false" />
+          <Property Name="fecha_modif" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TrabajadorDestino" Relationship="Self.FK_TrabajadorDestino_Actividad" FromRole="Actividad" ToRole="TrabajadorDestino" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ausencia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="inicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="tipo_ausencia" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_trabajador_ausente" Type="Int32" Nullable="false" />
+          <Property Name="id_turno" Type="Int32" />
+          <Property Name="id_solicitud" Type="Int32" />
+          <Property Name="id_trabajador_crea" Type="Int32" Nullable="false" />
+          <Property Name="fecha_crea" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_trabajador_modif" Type="Int32" Nullable="false" />
+          <Property Name="fecha_modif" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Trabajador" Relationship="Self.FK_Ausencia_Trabajador" FromRole="Ausencia" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="Destino">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="Int32" Nullable="false" />
+          <Property Name="fecha_crea" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_trabajador_modif" Type="Int32" Nullable="false" />
+          <Property Name="fecha_modif" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="TrabajadorDestino" Relationship="Self.FK_TrabajadorDestino_Destino" FromRole="Destino" ToRole="TrabajadorDestino" />
+        </EntityType>
+        <EntityType Name="Presencia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_turno" Type="Int32" Nullable="false" />
+          <Property Name="inicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_trabajador_crea" Type="Int32" Nullable="false" />
+          <Property Name="fecha_crea" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Turno" Relationship="Self.FK_Presencias_Turno" FromRole="Presencia" ToRole="Turno" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="Int32" Nullable="false" />
+          <Property Name="fecha_crea" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_trabajador_modif" Type="Int32" Nullable="false" />
+          <Property Name="fecha_modif" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Trabajador" Relationship="Self.FK_Trabajador_Rol" FromRole="Rol" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="Solicitud_Ausencia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estado" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_inicial_aus" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_final_aus" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="tipo_ausencia" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_trabajador_eval" Type="Int32" Nullable="false" />
+          <Property Name="fecha_eval" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_turno" Type="Int32" />
+          <Property Name="id_trabajador_crea" Type="Int32" Nullable="false" />
+          <Property Name="fecha_crea" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_trabajador_modif" Type="Int32" Nullable="false" />
+          <Property Name="fecha_modif" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="observacion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Trabajador" Relationship="Self.FK_Solicitud_Ausencias_Trabajador" FromRole="Solicitud_Ausencia" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="Solicitud_Cambio_Turno">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_turno" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="Int32" Nullable="false" />
+          <Property Name="id_trabajador_eval" Type="Int32" Nullable="false" />
+          <Property Name="fecha_crea" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_eval" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="fecha_nueva" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_tipo_turno_nuevo" Type="Int32" Nullable="false" />
+          <Property Name="observacion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Turno" Relationship="Self.FK_Solicitud_Cambio_Turno_Estado_Solicitud" FromRole="Solicitud_Cambio_Turno" ToRole="Turno" />
+        </EntityType>
+        <EntityType Name="Sucursal">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="Int32" Nullable="false" />
+          <Property Name="fecha_crea" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_trabajador_modif" Type="Int32" Nullable="false" />
+          <Property Name="fecha_modif" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Trabajador" Relationship="Self.FK_Trabajador_Sucursal" FromRole="Sucursal" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="Tipo_Turno">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="hora_inicio" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="hora_fin" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Turno" Relationship="Self.FK_Turno_Tipo_Turno" FromRole="Tipo_Turno" ToRole="Turno" />
+        </EntityType>
+        <EntityType Name="Trabajador">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_rol" Type="Int32" Nullable="false" />
+          <Property Name="id_sucursal" Type="Int32" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido1" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido2" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="Int32" Nullable="false" />
+          <Property Name="fecha_crea" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_trabajador_modif" Type="Int32" Nullable="false" />
+          <Property Name="fecha_modif" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_usuario" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ausencia" Relationship="Self.FK_Ausencia_Trabajador" FromRole="Trabajador" ToRole="Ausencia" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK_Trabajador_Rol" FromRole="Trabajador" ToRole="Rol" />
+          <NavigationProperty Name="Solicitud_Ausencia" Relationship="Self.FK_Solicitud_Ausencias_Trabajador" FromRole="Trabajador" ToRole="Solicitud_Ausencia" />
+          <NavigationProperty Name="Sucursal" Relationship="Self.FK_Trabajador_Sucursal" FromRole="Trabajador" ToRole="Sucursal" />
+          <NavigationProperty Name="TrabajadorDestino" Relationship="Self.FK_TrabajadorDestino_Trabajador" FromRole="Trabajador" ToRole="TrabajadorDestino" />
+          <NavigationProperty Name="Turno" Relationship="Self.FK_Turno_Trabajador" FromRole="Trabajador" ToRole="Turno" />
+        </EntityType>
+        <EntityType Name="TrabajadorDestino">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_destino" Type="Int32" Nullable="false" />
+          <Property Name="id_trabajador" Type="Int32" Nullable="false" />
+          <Property Name="id_actividad" Type="Int32" Nullable="false" />
+          <Property Name="habilitado" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Actividad" Relationship="Self.FK_TrabajadorDestino_Actividad" FromRole="TrabajadorDestino" ToRole="Actividad" />
+          <NavigationProperty Name="Destino" Relationship="Self.FK_TrabajadorDestino_Destino" FromRole="TrabajadorDestino" ToRole="Destino" />
+          <NavigationProperty Name="Trabajador" Relationship="Self.FK_TrabajadorDestino_Trabajador" FromRole="TrabajadorDestino" ToRole="Trabajador" />
+        </EntityType>
+        <EntityType Name="Turno">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_tipo_turno" Type="Int32" Nullable="false" />
+          <Property Name="fecha" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_sucursal" Type="Int32" Nullable="false" />
+          <Property Name="estado" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_trabajador_asignado" Type="Int32" Nullable="false" />
+          <Property Name="id_trabajador_crea" Type="Int32" Nullable="false" />
+          <Property Name="fecha_crea" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_trabajador_modif" Type="Int32" Nullable="false" />
+          <Property Name="fecha_modif" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_trabajador_elimina" Type="Int32" Nullable="false" />
+          <Property Name="fecha_elimina" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Presencia" Relationship="Self.FK_Presencias_Turno" FromRole="Turno" ToRole="Presencia" />
+          <NavigationProperty Name="Solicitud_Cambio_Turno" Relationship="Self.FK_Solicitud_Cambio_Turno_Estado_Solicitud" FromRole="Turno" ToRole="Solicitud_Cambio_Turno" />
+          <NavigationProperty Name="Tipo_Turno" Relationship="Self.FK_Turno_Tipo_Turno" FromRole="Turno" ToRole="Tipo_Turno" />
+          <NavigationProperty Name="Trabajador" Relationship="Self.FK_Turno_Trabajador" FromRole="Turno" ToRole="Trabajador" />
+        </EntityType>
+        <Association Name="FK_TrabajadorDestino_Actividad">
+          <End Role="Actividad" Type="Self.Actividad" Multiplicity="1" />
+          <End Role="TrabajadorDestino" Type="Self.TrabajadorDestino" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actividad">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TrabajadorDestino">
+              <PropertyRef Name="id_actividad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ausencia_Trabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+          <End Role="Ausencia" Type="Self.Ausencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ausencia">
+              <PropertyRef Name="id_trabajador_crea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorDestino_Destino">
+          <End Role="Destino" Type="Self.Destino" Multiplicity="1" />
+          <End Role="TrabajadorDestino" Type="Self.TrabajadorDestino" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Destino">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TrabajadorDestino">
+              <PropertyRef Name="id_destino" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Presencias_Turno">
+          <End Role="Turno" Type="Self.Turno" Multiplicity="1" />
+          <End Role="Presencia" Type="Self.Presencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turno">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Presencia">
+              <PropertyRef Name="id_turno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trabajador_Rol">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1" />
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Trabajador">
+              <PropertyRef Name="id_rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Ausencias_Trabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+          <End Role="Solicitud_Ausencia" Type="Self.Solicitud_Ausencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Solicitud_Ausencia">
+              <PropertyRef Name="id_trabajador_crea" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Solicitud_Cambio_Turno_Estado_Solicitud">
+          <End Role="Turno" Type="Self.Turno" Multiplicity="1" />
+          <End Role="Solicitud_Cambio_Turno" Type="Self.Solicitud_Cambio_Turno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Turno">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Solicitud_Cambio_Turno">
+              <PropertyRef Name="id_turno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Trabajador_Sucursal">
+          <End Role="Sucursal" Type="Self.Sucursal" Multiplicity="1" />
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sucursal">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Trabajador">
+              <PropertyRef Name="id_sucursal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Turno_Tipo_Turno">
+          <End Role="Tipo_Turno" Type="Self.Tipo_Turno" Multiplicity="1" />
+          <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo_Turno">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Turno">
+              <PropertyRef Name="id_tipo_turno" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TrabajadorDestino_Trabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+          <End Role="TrabajadorDestino" Type="Self.TrabajadorDestino" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TrabajadorDestino">
+              <PropertyRef Name="id_trabajador" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Turno_Trabajador">
+          <End Role="Trabajador" Type="Self.Trabajador" Multiplicity="1" />
+          <End Role="Turno" Type="Self.Turno" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Trabajador">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Turno">
+              <PropertyRef Name="id_trabajador_asignado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PangeaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actividad" EntityType="Self.Actividad" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="Ausencia" EntityType="Self.Ausencia" />
+          <EntitySet Name="Destino" EntityType="Self.Destino" />
+          <EntitySet Name="Presencia" EntityType="Self.Presencia" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="Solicitud_Ausencia" EntityType="Self.Solicitud_Ausencia" />
+          <EntitySet Name="Solicitud_Cambio_Turno" EntityType="Self.Solicitud_Cambio_Turno" />
+          <EntitySet Name="Sucursal" EntityType="Self.Sucursal" />
+          <EntitySet Name="Tipo_Turno" EntityType="Self.Tipo_Turno" />
+          <EntitySet Name="Trabajador" EntityType="Self.Trabajador" />
+          <EntitySet Name="TrabajadorDestino" EntityType="Self.TrabajadorDestino" />
+          <EntitySet Name="Turno" EntityType="Self.Turno" />
+          <AssociationSet Name="FK_TrabajadorDestino_Actividad" Association="Self.FK_TrabajadorDestino_Actividad">
+            <End Role="Actividad" EntitySet="Actividad" />
+            <End Role="TrabajadorDestino" EntitySet="TrabajadorDestino" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ausencia_Trabajador" Association="Self.FK_Ausencia_Trabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Ausencia" EntitySet="Ausencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorDestino_Destino" Association="Self.FK_TrabajadorDestino_Destino">
+            <End Role="Destino" EntitySet="Destino" />
+            <End Role="TrabajadorDestino" EntitySet="TrabajadorDestino" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Presencias_Turno" Association="Self.FK_Presencias_Turno">
+            <End Role="Turno" EntitySet="Turno" />
+            <End Role="Presencia" EntitySet="Presencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trabajador_Rol" Association="Self.FK_Trabajador_Rol">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Trabajador" EntitySet="Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Ausencias_Trabajador" Association="Self.FK_Solicitud_Ausencias_Trabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Solicitud_Ausencia" EntitySet="Solicitud_Ausencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Solicitud_Cambio_Turno_Estado_Solicitud" Association="Self.FK_Solicitud_Cambio_Turno_Estado_Solicitud">
+            <End Role="Turno" EntitySet="Turno" />
+            <End Role="Solicitud_Cambio_Turno" EntitySet="Solicitud_Cambio_Turno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Trabajador_Sucursal" Association="Self.FK_Trabajador_Sucursal">
+            <End Role="Sucursal" EntitySet="Sucursal" />
+            <End Role="Trabajador" EntitySet="Trabajador" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Turno_Tipo_Turno" Association="Self.FK_Turno_Tipo_Turno">
+            <End Role="Tipo_Turno" EntitySet="Tipo_Turno" />
+            <End Role="Turno" EntitySet="Turno" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TrabajadorDestino_Trabajador" Association="Self.FK_TrabajadorDestino_Trabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="TrabajadorDestino" EntitySet="TrabajadorDestino" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Turno_Trabajador" Association="Self.FK_Turno_Trabajador">
+            <End Role="Trabajador" EntitySet="Trabajador" />
+            <End Role="Turno" EntitySet="Turno" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PangeaModelStoreContainer" CdmEntityContainer="PangeaEntities">
+          <EntitySetMapping Name="Actividad">
+            <EntityTypeMapping TypeName="PangeaModel.Actividad">
+              <MappingFragment StoreEntitySet="Actividad">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="id_trabajador_crea" ColumnName="id_trabajador_crea" />
+                <ScalarProperty Name="fecha_crea" ColumnName="fecha_crea" />
+                <ScalarProperty Name="id_trabajador_modif" ColumnName="id_trabajador_modif" />
+                <ScalarProperty Name="fecha_modif" ColumnName="fecha_modif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="PangeaModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ausencia">
+            <EntityTypeMapping TypeName="PangeaModel.Ausencia">
+              <MappingFragment StoreEntitySet="Ausencia">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="inicio" ColumnName="inicio" />
+                <ScalarProperty Name="fin" ColumnName="fin" />
+                <ScalarProperty Name="tipo_ausencia" ColumnName="tipo_ausencia" />
+                <ScalarProperty Name="id_trabajador_ausente" ColumnName="id_trabajador_ausente" />
+                <ScalarProperty Name="id_turno" ColumnName="id_turno" />
+                <ScalarProperty Name="id_solicitud" ColumnName="id_solicitud" />
+                <ScalarProperty Name="id_trabajador_crea" ColumnName="id_trabajador_crea" />
+                <ScalarProperty Name="fecha_crea" ColumnName="fecha_crea" />
+                <ScalarProperty Name="id_trabajador_modif" ColumnName="id_trabajador_modif" />
+                <ScalarProperty Name="fecha_modif" ColumnName="fecha_modif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Destino">
+            <EntityTypeMapping TypeName="PangeaModel.Destino">
+              <MappingFragment StoreEntitySet="Destino">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="id_trabajador_crea" ColumnName="id_trabajador_crea" />
+                <ScalarProperty Name="fecha_crea" ColumnName="fecha_crea" />
+                <ScalarProperty Name="id_trabajador_modif" ColumnName="id_trabajador_modif" />
+                <ScalarProperty Name="fecha_modif" ColumnName="fecha_modif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Presencia">
+            <EntityTypeMapping TypeName="PangeaModel.Presencia">
+              <MappingFragment StoreEntitySet="Presencia">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_turno" ColumnName="id_turno" />
+                <ScalarProperty Name="inicio" ColumnName="inicio" />
+                <ScalarProperty Name="fin" ColumnName="fin" />
+                <ScalarProperty Name="id_trabajador_crea" ColumnName="id_trabajador_crea" />
+                <ScalarProperty Name="fecha_crea" ColumnName="fecha_crea" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="PangeaModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="id_trabajador_crea" ColumnName="id_trabajador_crea" />
+                <ScalarProperty Name="fecha_crea" ColumnName="fecha_crea" />
+                <ScalarProperty Name="id_trabajador_modif" ColumnName="id_trabajador_modif" />
+                <ScalarProperty Name="fecha_modif" ColumnName="fecha_modif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Solicitud_Ausencia">
+            <EntityTypeMapping TypeName="PangeaModel.Solicitud_Ausencia">
+              <MappingFragment StoreEntitySet="Solicitud_Ausencia">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="fecha_inicial_aus" ColumnName="fecha_inicial_aus" />
+                <ScalarProperty Name="fecha_final_aus" ColumnName="fecha_final_aus" />
+                <ScalarProperty Name="tipo_ausencia" ColumnName="tipo_ausencia" />
+                <ScalarProperty Name="id_trabajador_eval" ColumnName="id_trabajador_eval" />
+                <ScalarProperty Name="fecha_eval" ColumnName="fecha_eval" />
+                <ScalarProperty Name="id_turno" ColumnName="id_turno" />
+                <ScalarProperty Name="id_trabajador_crea" ColumnName="id_trabajador_crea" />
+                <ScalarProperty Name="fecha_crea" ColumnName="fecha_crea" />
+                <ScalarProperty Name="id_trabajador_modif" ColumnName="id_trabajador_modif" />
+                <ScalarProperty Name="fecha_modif" ColumnName="fecha_modif" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Solicitud_Cambio_Turno">
+            <EntityTypeMapping TypeName="PangeaModel.Solicitud_Cambio_Turno">
+              <MappingFragment StoreEntitySet="Solicitud_Cambio_Turno">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_turno" ColumnName="id_turno" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_trabajador_crea" ColumnName="id_trabajador_crea" />
+                <ScalarProperty Name="id_trabajador_eval" ColumnName="id_trabajador_eval" />
+                <ScalarProperty Name="fecha_crea" ColumnName="fecha_crea" />
+                <ScalarProperty Name="fecha_eval" ColumnName="fecha_eval" />
+                <ScalarProperty Name="fecha_nueva" ColumnName="fecha_nueva" />
+                <ScalarProperty Name="id_tipo_turno_nuevo" ColumnName="id_tipo_turno_nuevo" />
+                <ScalarProperty Name="observacion" ColumnName="observacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sucursal">
+            <EntityTypeMapping TypeName="PangeaModel.Sucursal">
+              <MappingFragment StoreEntitySet="Sucursal">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="id_trabajador_crea" ColumnName="id_trabajador_crea" />
+                <ScalarProperty Name="fecha_crea" ColumnName="fecha_crea" />
+                <ScalarProperty Name="id_trabajador_modif" ColumnName="id_trabajador_modif" />
+                <ScalarProperty Name="fecha_modif" ColumnName="fecha_modif" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipo_Turno">
+            <EntityTypeMapping TypeName="PangeaModel.Tipo_Turno">
+              <MappingFragment StoreEntitySet="Tipo_Turno">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
+                <ScalarProperty Name="hora_fin" ColumnName="hora_fin" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Trabajador">
+            <EntityTypeMapping TypeName="PangeaModel.Trabajador">
+              <MappingFragment StoreEntitySet="Trabajador">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_rol" ColumnName="id_rol" />
+                <ScalarProperty Name="id_sucursal" ColumnName="id_sucursal" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+                <ScalarProperty Name="id_trabajador_crea" ColumnName="id_trabajador_crea" />
+                <ScalarProperty Name="fecha_crea" ColumnName="fecha_crea" />
+                <ScalarProperty Name="id_trabajador_modif" ColumnName="id_trabajador_modif" />
+                <ScalarProperty Name="fecha_modif" ColumnName="fecha_modif" />
+                <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TrabajadorDestino">
+            <EntityTypeMapping TypeName="PangeaModel.TrabajadorDestino">
+              <MappingFragment StoreEntitySet="TrabajadorDestino">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_destino" ColumnName="id_destino" />
+                <ScalarProperty Name="id_trabajador" ColumnName="id_trabajador" />
+                <ScalarProperty Name="id_actividad" ColumnName="id_actividad" />
+                <ScalarProperty Name="habilitado" ColumnName="habilitado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Turno">
+            <EntityTypeMapping TypeName="PangeaModel.Turno">
+              <MappingFragment StoreEntitySet="Turno">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_tipo_turno" ColumnName="id_tipo_turno" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
+                <ScalarProperty Name="id_sucursal" ColumnName="id_sucursal" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id_trabajador_asignado" ColumnName="id_trabajador_asignado" />
+                <ScalarProperty Name="id_trabajador_crea" ColumnName="id_trabajador_crea" />
+                <ScalarProperty Name="fecha_crea" ColumnName="fecha_crea" />
+                <ScalarProperty Name="id_trabajador_modif" ColumnName="id_trabajador_modif" />
+                <ScalarProperty Name="fecha_modif" ColumnName="fecha_modif" />
+                <ScalarProperty Name="id_trabajador_elimina" ColumnName="id_trabajador_elimina" />
+                <ScalarProperty Name="fecha_elimina" ColumnName="fecha_elimina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
